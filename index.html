@@ -78,10 +78,10 @@
   /* ---------- hero ---------- */
   .hero{
     padding:180px 0 100px;
-    display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;
     border-bottom:1px solid var(--line);
   }
-  @media(max-width:880px){.hero{grid-template-columns:1fr;padding:140px 0 60px;}}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;}
+  @media(max-width:880px){.hero{padding:140px 0 60px;}.hero .wrap{grid-template-columns:1fr;}}
   .hero h1{font-size:clamp(38px,6vw,64px);line-height:1.05;margin-bottom:22px;}
   .hero h1 .hl{color:var(--accent);}
   .hero p.lede{font-size:18px;color:var(--text-dim);max-width:480px;margin-bottom:36px;}
@@ -191,7 +191,7 @@
 </nav>
 
 <section class="hero">
-  <div class="wrap" style="display:contents;">
+  <div class="wrap">
     <div>
       <div class="role-cycle" id="roleCycle">&gt; building agentic AI systems</div>
       <h1>Chilukuri Charan<br><span class="hl">Sri Teja</span></h1>
@@ -202,42 +202,44 @@
       </div>
     </div>
     <div class="flow-wrap" aria-hidden="true">
-      <svg class="flow-svg" viewBox="0 0 360 420">
-        <path class="flow-edge" d="M180,40 L180,110"/>
-        <path class="flow-edge" d="M180,150 L90,210"/>
-        <path class="flow-edge" d="M180,150 L270,210"/>
-        <path class="flow-edge" d="M90,250 L90,300"/>
-        <path class="flow-edge" d="M270,250 L270,300"/>
-        <path class="flow-edge" d="M90,300 L180,360"/>
-        <path class="flow-edge" d="M270,300 L180,360"/>
+      <svg class="flow-svg" viewBox="0 0 360 400">
+        <text class="flow-label" x="90" y="16" text-anchor="middle" fill="var(--accent)" style="font-weight:600;">web dev</text>
+        <text class="flow-label" x="270" y="16" text-anchor="middle" fill="var(--accent2)" style="font-weight:600;">ai / genai</text>
 
-        <g id="n-input">
-          <rect class="flow-node" x="120" y="10" width="120" height="40" rx="8"/>
-          <text class="flow-label" x="180" y="34" text-anchor="middle">input</text>
+        <path class="flow-edge" d="M90,70 L90,110"/>
+        <path class="flow-edge" d="M270,70 L270,110"/>
+        <path class="flow-edge" d="M90,150 L90,190"/>
+        <path class="flow-edge" d="M270,150 L270,190"/>
+        <path class="flow-edge" d="M90,230 L90,265 L140,265 L140,300"/>
+        <path class="flow-edge" d="M270,230 L270,265 L220,265 L220,300"/>
+
+        <g id="n-web1">
+          <rect class="flow-node" x="20" y="30" width="140" height="40" rx="8"/>
+          <text class="flow-label" x="90" y="54" text-anchor="middle">react</text>
         </g>
-        <g id="n-plan">
-          <rect class="flow-node" x="120" y="110" width="120" height="40" rx="8"/>
-          <text class="flow-label" x="180" y="134" text-anchor="middle">plan</text>
+        <g id="n-ai1">
+          <rect class="flow-node" x="200" y="30" width="140" height="40" rx="8"/>
+          <text class="flow-label" x="270" y="54" text-anchor="middle">llms</text>
         </g>
-        <g id="n-tool">
-          <rect class="flow-node" x="30" y="210" width="120" height="40" rx="8"/>
-          <text class="flow-label" x="90" y="234" text-anchor="middle">tool call</text>
+        <g id="n-web2">
+          <rect class="flow-node" x="20" y="110" width="140" height="40" rx="8"/>
+          <text class="flow-label" x="90" y="134" text-anchor="middle">node.js</text>
         </g>
-        <g id="n-reason">
-          <rect class="flow-node" x="210" y="210" width="120" height="40" rx="8"/>
-          <text class="flow-label" x="270" y="234" text-anchor="middle">reason</text>
+        <g id="n-ai2">
+          <rect class="flow-node" x="200" y="110" width="140" height="40" rx="8"/>
+          <text class="flow-label" x="270" y="134" text-anchor="middle">rag</text>
         </g>
-        <g id="n-observe">
-          <rect class="flow-node" x="30" y="300" width="120" height="40" rx="8"/>
-          <text class="flow-label" x="90" y="324" text-anchor="middle">observe</text>
+        <g id="n-web3">
+          <rect class="flow-node" x="20" y="190" width="140" height="40" rx="8"/>
+          <text class="flow-label" x="90" y="214" text-anchor="middle">apis</text>
         </g>
-        <g id="n-verify">
-          <rect class="flow-node" x="210" y="300" width="120" height="40" rx="8"/>
-          <text class="flow-label" x="270" y="324" text-anchor="middle">verify</text>
+        <g id="n-ai3">
+          <rect class="flow-node" x="200" y="190" width="140" height="40" rx="8"/>
+          <text class="flow-label" x="270" y="214" text-anchor="middle">agents</text>
         </g>
-        <g id="n-output">
-          <rect class="flow-node" x="120" y="360" width="120" height="40" rx="8"/>
-          <text class="flow-label" x="180" y="384" text-anchor="middle">output</text>
+        <g id="n-merge">
+          <rect class="flow-node" x="80" y="300" width="200" height="50" rx="8"/>
+          <text class="flow-label" x="180" y="329" text-anchor="middle">ai-powered products</text>
         </g>
       </svg>
     </div>
@@ -290,7 +292,7 @@
         <h3>Infra / Tools</h3>
         <ul>
           <li>Docker</li><li>AWS (Lambda, API Gateway, DynamoDB)</li><li>Vercel / Render</li>
-          <li>Nginx</li><li>Cloudinary</li><li>Brevo</li>
+          <li>Cloudinary</li><li>Brevo</li>
         </ul>
       </div>
     </div>
@@ -321,6 +323,37 @@
     <div class="project">
       <div class="project-num">02</div>
       <div>
+        <h3>EOC Website <span class="badge">Event Organizing Cell</span></h3>
+        <p>Three-role platform (admin, club coordinators, students) with role-based access control governing event creation and registration. Coordinators create, update, and delete events with photos; students browse and register directly, with email verification and password reset via time-limited JWT tokens over Brevo.</p>
+        <div class="link-row">
+          <a class="plink" href="https://eoc-website.vercel.app/" target="_blank" rel="noopener">↗ live demo</a>
+          <a class="plink" href="https://github.com/CharanSriTeja/eoc-website" target="_blank" rel="noopener">↗ code</a>
+        </div>
+        <div class="tag-row">
+          <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Express</span>
+          <span class="tag">MongoDB</span><span class="tag">Brevo</span><span class="tag">JWT</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-num">03</div>
+      <div>
+        <h3>EcoLearn <span class="badge">SIH 2025</span></h3>
+        <p>Gamified environmental-education platform built as team lead for Smart India Hackathon 2025 — separate student, teacher, and school logins, an AI chatbot for environmental Q&amp;A, and a points/leaderboard system for completed activities.</p>
+        <div class="link-row">
+          <a class="plink" href="https://eco-learn-te52.vercel.app/" target="_blank" rel="noopener">↗ live demo</a>
+          <a class="plink" href="https://github.com/CharanSriTeja/EcoLearn" target="_blank" rel="noopener">↗ code</a>
+        </div>
+        <div class="tag-row">
+          <span class="tag">MERN</span><span class="tag">Gemini API</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-num">04</div>
+      <div>
         <h3>Event Registration Automation System</h3>
         <p>Full-stack registration platform with QR-code check-ins, automated email confirmations, and image uploads — built and deployed for the SRKR Coding Club web developer assessment.</p>
         <div class="link-row">
@@ -329,31 +362,6 @@
         <div class="tag-row">
           <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Prisma</span>
           <span class="tag">React / Vite</span><span class="tag">Cloudinary</span><span class="tag">Brevo</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="project">
-      <div class="project-num">03</div>
-      <div>
-        <h3>AI Product Recommendation System</h3>
-        <p>Agentic recommendation engine built for a live technical assessment — earned a Round 1 interview off the strength of the submission.</p>
-        <div class="tag-row">
-          <span class="tag">LangGraph</span><span class="tag">Groq</span><span class="tag">React</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="project">
-      <div class="project-num">04</div>
-      <div>
-        <h3>RAG PDF Q&amp;A System</h3>
-        <p>Document question-answering system with a retrieval pipeline tuned across TF-IDF, BM25, and dense embedding approaches, evaluated with RAGAS.</p>
-        <div class="link-row">
-          <a class="plink" href="https://github.com/CharanSriTeja/Travel-Agent-2" target="_blank" rel="noopener">↗ code</a>
-        </div>
-        <div class="tag-row">
-          <span class="tag">LangChain</span><span class="tag">ChromaDB</span><span class="tag">FastAPI</span><span class="tag">React</span>
         </div>
       </div>
     </div>
@@ -375,29 +383,24 @@
     <div class="project">
       <div class="project-num">06</div>
       <div>
-        <h3>EcoLearn <span class="badge">SIH 2025</span></h3>
-        <p>Gamified environmental-education platform built as team lead for Smart India Hackathon 2025 — separate student, teacher, and school logins, an AI chatbot for environmental Q&amp;A, and a points/leaderboard system for completed activities.</p>
+        <h3>RAG PDF Q&amp;A System</h3>
+        <p>Document question-answering system with a retrieval pipeline tuned across TF-IDF, BM25, and dense embedding approaches, evaluated with RAGAS.</p>
         <div class="link-row">
-          <a class="plink" href="https://eco-learn-te52.vercel.app/" target="_blank" rel="noopener">↗ live demo</a>
-          <a class="plink" href="https://github.com/CharanSriTeja/EcoLearn" target="_blank" rel="noopener">↗ code</a>
+          <a class="plink" href="https://github.com/CharanSriTeja/Travel-Agent-2" target="_blank" rel="noopener">↗ code</a>
         </div>
         <div class="tag-row">
-          <span class="tag">MERN</span><span class="tag">Gemini API</span>
+          <span class="tag">LangChain</span><span class="tag">ChromaDB</span><span class="tag">FastAPI</span><span class="tag">React</span>
         </div>
       </div>
     </div>
+
     <div class="project">
       <div class="project-num">07</div>
       <div>
-        <h3>EOC Website <span class="badge">Event Organizing Cell</span></h3>
-        <p>Three-role platform (admin, club coordinators, students) with role-based access control governing event creation and registration. Coordinators create, update, and delete events with photos; students browse and register directly, with email verification and password reset via time-limited JWT tokens over Brevo.</p>
-        <div class="link-row">
-          <a class="plink" href="https://eoc-website.vercel.app/" target="_blank" rel="noopener">↗ live demo</a>
-          <a class="plink" href="https://github.com/CharanSriTeja/eoc-website" target="_blank" rel="noopener">↗ code</a>
-        </div>
+        <h3>AI Product Recommendation System</h3>
+        <p>Agentic recommendation engine built for a live technical assessment — earned a Round 1 interview off the strength of the submission.</p>
         <div class="tag-row">
-          <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Express</span>
-          <span class="tag">MongoDB</span><span class="tag">Brevo</span><span class="tag">JWT</span>
+          <span class="tag">LangGraph</span><span class="tag">Groq</span><span class="tag">React</span>
         </div>
       </div>
     </div>
@@ -413,7 +416,6 @@
         <ul>
           <li>Focusing on data structures &amp; algorithms to strengthen interview fundamentals</li>
           <li>Learning new AI tooling and agentic architectures beyond LangGraph/LangChain</li>
-          <li>Preparing a project for the Razorpay AI Builder Internship — AI Growth &amp; Agentic Commerce track</li>
           <li>Exploring serverless architecture on AWS (API Gateway → Lambda → DynamoDB) with LocalStack</li>
         </ul>
       </div>
@@ -434,7 +436,7 @@
   </div>
 </section>
 
-<footer>built by Charan · deployed on GitHub Pages</footer>
+<footer>built by Charan</footer>
 
 <script>
   // role cycle text
@@ -456,8 +458,8 @@
   }, 3200);
   roleEl.style.transition = 'opacity .25s ease';
 
-  // agent flow pulse animation: sequentially highlight nodes
-  const sequence = ['n-input','n-plan','n-tool','n-reason','n-observe','n-verify','n-output'];
+  // two-track pulse animation: alternate web dev / ai nodes, then highlight the merge
+  const sequence = ['n-web1','n-ai1','n-web2','n-ai2','n-web3','n-ai3','n-merge'];
   let step = 0;
   function pulseFlow(){
     sequence.forEach(id => {
