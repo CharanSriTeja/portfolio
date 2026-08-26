@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Charan Sri Teja — AI &amp; Full-Stack Engineer</title>
 <meta name="description" content="Chilukuri Charan Sri Teja — AI/ML student building agentic AI systems, RAG pipelines, and full-stack products.">
+
+<!-- SEO & Social Meta Tags -->
+<meta name="keywords" content="Charan Sri Teja, AI Engineer, Full-Stack Developer, Machine Learning, Web Development, Portfolio">
+<meta property="og:title" content="Charan Sri Teja — AI &amp; Full-Stack Engineer">
+<meta property="og:description" content="AI/ML student building agentic AI systems, RAG pipelines, and full-stack products.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://charan.dev">
+<meta property="og:image" content="https://charan.dev/og-image.jpg">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -126,14 +137,52 @@
   .skill-card ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;}
   .skill-card li{font-size:13px;color:var(--text-dim);border:1px solid var(--line);padding:5px 10px;border-radius:5px;font-family:var(--mono);}
 
-  /* ---------- projects ---------- */
+  /* ---------- projects & animations ---------- */
   .project{
-    display:grid;grid-template-columns:80px 1fr;gap:24px;
-    padding:36px 0;border-bottom:1px solid var(--line);
+    display:grid;grid-template-columns:80px 1fr 180px;gap:24px;
+    padding:36px 24px;margin: 0 -24px;border-bottom:1px solid var(--line);
+    transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease, border-radius 0.3s ease;
   }
-  .project:first-child{padding-top:0;}
+  .project:first-child{padding-top:36px;}
   .project:last-child{border-bottom:none;}
+  .project:hover {
+    background: rgba(255, 255, 255, 0.02);
+    transform: translateY(-2px);
+    border-color: transparent;
+    border-radius: 12px;
+  }
+  .project-img-wrapper {
+    width: 100%;
+    height: 120px;
+    border-radius: 8px;
+    background: linear-gradient(45deg, var(--bg-raised), var(--line), var(--bg-raised));
+    background-size: 200% 200%;
+    animation: gradientFlow 3s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--line);
+    color: var(--text-dim);
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .project:hover .project-img-wrapper { border-color: var(--accent2); color: var(--accent2); }
+  @keyframes gradientFlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+  @media(max-width:880px){.project{grid-template-columns:80px 1fr;}.project-img-wrapper{display:none;}}
   @media(max-width:640px){.project{grid-template-columns:1fr;gap:12px;}}
+
+  /* ---------- back to top ---------- */
+  .back-to-top {
+    position: fixed; bottom: 32px; right: 32px; width: 44px; height: 44px;
+    border-radius: 50%; background: var(--bg-raised); color: var(--accent2);
+    border: 1px solid var(--line); display: flex; align-items: center; justify-content: center;
+    font-size: 20px; cursor: pointer; opacity: 0; visibility: hidden;
+    transform: translateY(20px); transition: all 0.3s ease; z-index: 99;
+  }
+  .back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+  .back-to-top:hover { background: var(--accent2); color: var(--bg); transform: translateY(-3px); }
   .project-num{font-family:var(--mono);font-size:13px;color:var(--text-dim);}
   .project h3{font-size:22px;margin-bottom:10px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
   .badge{font-family:var(--mono);font-size:10.5px;color:var(--accent2);border:1px solid var(--accent2);padding:2px 8px;border-radius:20px;text-transform:uppercase;letter-spacing:.06em;}
@@ -181,6 +230,7 @@
         <a href="#projects">projects</a>
         <a href="#now">now</a>
         <a href="#contact">contact</a>
+        <a href="resume.pdf" target="_blank" rel="noopener" style="color:var(--accent2);">resume</a>
       </div>
       <div class="nav-social">
         <a href="https://github.com/CharanSriTeja" target="_blank" rel="noopener">github</a>
@@ -198,6 +248,7 @@
       <p class="lede">Third-year AI &amp; ML student who ships full-stack products end to end — from LangGraph agents and RAG pipelines to production deployments. Currently hunting internships in AI/GenAI and backend engineering.</p>
       <div class="cta-row">
         <a href="#projects" class="btn btn-primary">View projects</a>
+        <a href="resume.pdf" target="_blank" rel="noopener" class="btn btn-ghost">View Resume</a>
         <a href="#contact" class="btn btn-ghost">Get in touch</a>
       </div>
     </div>
@@ -318,6 +369,7 @@
           <span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">React</span><span class="tag">JWT</span>
         </div>
       </div>
+        <a href="https://travel-agent-2-omega.vercel.app/" target="_blank" rel="noopener" class="project-img-wrapper"><img src="https://image.thum.io/get/width/400/crop/800/https://travel-agent-2-omega.vercel.app/" style="width:100%; height:100%; object-fit:cover;" loading="lazy" alt="Site Preview"></a>
     </div>
 
     <div class="project">
@@ -334,6 +386,7 @@
           <span class="tag">MongoDB</span><span class="tag">Brevo</span><span class="tag">JWT</span>
         </div>
       </div>
+        <a href="https://eoc-website.vercel.app/" target="_blank" rel="noopener" class="project-img-wrapper"><img src="https://image.thum.io/get/width/400/crop/800/https://eoc-website.vercel.app/" style="width:100%; height:100%; object-fit:cover;" loading="lazy" alt="Site Preview"></a>
     </div>
 
     <div class="project">
@@ -349,6 +402,7 @@
           <span class="tag">MERN</span><span class="tag">Gemini API</span>
         </div>
       </div>
+        <a href="https://eco-learn-te52.vercel.app/" target="_blank" rel="noopener" class="project-img-wrapper"><img src="https://image.thum.io/get/width/400/crop/800/https://eco-learn-te52.vercel.app/" style="width:100%; height:100%; object-fit:cover;" loading="lazy" alt="Site Preview"></a>
     </div>
 
     <div class="project">
@@ -364,6 +418,7 @@
           <span class="tag">React / Vite</span><span class="tag">Cloudinary</span><span class="tag">Brevo</span>
         </div>
       </div>
+        <a href="https://event-registration-automation-syste.vercel.app/" target="_blank" rel="noopener" class="project-img-wrapper"><img src="https://image.thum.io/get/width/400/crop/800/https://event-registration-automation-syste.vercel.app/" style="width:100%; height:100%; object-fit:cover;" loading="lazy" alt="Site Preview"></a>
     </div>
 
     <div class="project">
@@ -378,6 +433,7 @@
           <span class="tag">MongoDB</span><span class="tag">WhatsApp Business API</span><span class="tag">Node.js</span>
         </div>
       </div>
+        <a href="https://smart-admission-system-1.vercel.app/" target="_blank" rel="noopener" class="project-img-wrapper"><img src="https://image.thum.io/get/width/400/crop/800/https://smart-admission-system-1.vercel.app/" style="width:100%; height:100%; object-fit:cover;" loading="lazy" alt="Site Preview"></a>
     </div>
 
     <div class="project">
@@ -392,6 +448,7 @@
           <span class="tag">LangChain</span><span class="tag">ChromaDB</span><span class="tag">FastAPI</span><span class="tag">React</span>
         </div>
       </div>
+        <a href="https://github.com/CharanSriTeja/Travel-Agent-2" target="_blank" rel="noopener" class="project-img-wrapper">Code</a>
     </div>
 
     <div class="project">
@@ -399,13 +456,19 @@
       <div>
         <h3>AI Product Recommendation System</h3>
         <p>Agentic recommendation engine built for a live technical assessment — earned a Round 1 interview off the strength of the submission.</p>
+        <div class="link-row">
+          <a class="plink" href="https://ai-recommend-two.vercel.app/" target="_blank" rel="noopener">↗ live demo</a>
+        </div>
         <div class="tag-row">
           <span class="tag">LangGraph</span><span class="tag">Groq</span><span class="tag">React</span>
         </div>
       </div>
+        <a href="https://ai-recommend-two.vercel.app/" target="_blank" rel="noopener" class="project-img-wrapper"><img src="https://image.thum.io/get/width/400/crop/800/https://ai-recommend-two.vercel.app/" style="width:100%; height:100%; object-fit:cover;" loading="lazy" alt="Site Preview"></a>
     </div>
   </div>
 </section>
+
+<section id="now">
   <div class="wrap">
     <div class="eyebrow">Right now</div>
     <h2 class="section-title">Currently building</h2>
@@ -432,11 +495,14 @@
       <a class="contact-link" href="mailto:charanchilukuri2299@gmail.com">✉ email</a>
       <a class="contact-link" href="https://github.com/CharanSriTeja" target="_blank" rel="noopener">↗ github</a>
       <a class="contact-link" href="https://www.linkedin.com/in/charan-sri-teja-chilukuri-33006a310" target="_blank" rel="noopener">↗ linkedin</a>
+      <a class="contact-link" href="resume.pdf" target="_blank" rel="noopener">📄 resume</a>
     </div>
   </div>
 </section>
 
 <footer>built by Charan</footer>
+
+<button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
 
 <script>
   // role cycle text
@@ -474,6 +540,19 @@
   }
   pulseFlow();
   setInterval(pulseFlow, 650);
+
+  // back to top functionality
+  const backToTopBtn = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      backToTopBtn.classList.add('visible');
+    } else {
+      backToTopBtn.classList.remove('visible');
+    }
+  });
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 </script>
 
 </body>
